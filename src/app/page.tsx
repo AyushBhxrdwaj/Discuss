@@ -1,16 +1,20 @@
-"use client";
+'use client';
+
+import { signIn, signOut, useSession } from "next-auth/react";
 import Particles from "@/blocks/Backgrounds/Particles";
 import { Button } from "@/components/ui/button";
-import React from "react";
-const page = () => {
+
+export default function Page() {
+  const { data: session } = useSession();
+
   return (
     <div className="relative h-screen w-screen overflow-hidden flex items-center justify-center">
-      <div className="absolute -z-100 inset-0 pointer-events-none">
+      <div className="absolute -z-10 inset-0 pointer-events-none">
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
           particleCount={500}
           particleSpread={10}
-          speed={0.1}
+          speed={0.2}
           particleBaseSize={100}
           moveParticlesOnHover={true}
           alphaParticles={false}
@@ -18,12 +22,16 @@ const page = () => {
         />
       </div>
 
-      <form className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-lg flex flex-col gap-4">
-        <Button variant="default">Signin</Button>
-        <Button variant="default">Signout</Button>
-      </form>
+      <div className="bg-white/10 backdrop-blur-md p-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
+        {session ? (
+          <>
+            <p className="text-white">Welcome, {session.user?.name}</p>
+            <Button onClick={() => signOut()}>Sign Out</Button>
+          </>
+        ) : (
+          <Button onClick={() => signIn("github")}>Sign in with GitHub</Button>
+        )}
+      </div>
     </div>
   );
-};
-
-export default page;
+}

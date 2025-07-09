@@ -23,7 +23,7 @@ model Account{
   expiresAt Int?
   tokenType String?
   scope     String?
-  id_Token   String?
+  id_token   String?
   sessionState String?
 
   user User @relation(fields: [userId], references: [id],onDelete:Cascade)
