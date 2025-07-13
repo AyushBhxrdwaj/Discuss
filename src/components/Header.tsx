@@ -1,10 +1,13 @@
+'use client';
+
 import React from "react";
 import { Input } from "@/components/ui/input";
 import FuzzyText from "@/blocks/TextAnimations/FuzzyText";
 import AuthHeader from "./auth-header";
-const Header =() => {
+
+const Header = () => {
   return (
-    <div className="grid grid-cols-3 items-center h-15">
+    <div className="grid grid-cols-3 items-center h-16 px-4">
       <div className="flex justify-start">
         <FuzzyText
           baseIntensity={0.12}
@@ -14,16 +17,16 @@ const Header =() => {
           DisCuss
         </FuzzyText>
       </div>
+
       <div className="flex justify-center">
         <Input
-          className="text-gray-400 placeholder:text-gray-400 font-medium border-2 border-gray-600 italic"
+          className="text-gray-400 placeholder:text-gray-400 font-medium border-2 border-gray-600 italic w-full max-w-md"
           type="text"
           placeholder="Search Post...."
         />
       </div>
-      <div className="flex justify-end gap-5">
-        <AuthHeader/>
-        
+      <div className="flex justify-end gap-4">
+        <AuthHeader />
       </div>
     </div>
   );
