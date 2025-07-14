@@ -1,21 +1,23 @@
-'use client';
+"use client";
 
 import React from "react";
 import { Input } from "@/components/ui/input";
 import FuzzyText from "@/blocks/TextAnimations/FuzzyText";
 import AuthHeader from "./auth-header";
-
+import Link from "next/link";
 const Header = () => {
   return (
     <div className="grid grid-cols-3 items-center h-16 px-4">
       <div className="flex justify-start">
-        <FuzzyText
-          baseIntensity={0.12}
-          hoverIntensity={0.18}
-          enableHover={true}
-        >
-          DisCuss
-        </FuzzyText>
+        <Link href="/">
+          <FuzzyText
+            baseIntensity={0.12}
+            hoverIntensity={0.18}
+            enableHover={true}
+          >
+            DisCuss
+          </FuzzyText>
+        </Link>
       </div>
 
       <div className="flex justify-center">

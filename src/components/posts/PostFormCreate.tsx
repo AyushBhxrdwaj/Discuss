@@ -14,14 +14,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
-import { createTopic } from "@/actions/create-topics";
+import {createPost} from "@/actions/create-posts"
 import { useActionState } from "react";
-const CreateForm = () => {
-  const [formState, action] = useActionState(createTopic, { errors: {} });
+type PostFormCreateProps = {
+    slug:string;
+}
+const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
+  const [formState, action] = useActionState(createPost.bind(null,slug),{errors:{}});
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="z-10 bg-black/45">New Topic</Button>
+        <Button className="z-10 bg-black/45">Create a Post</Button>
       </DialogTrigger>
 
       <DialogContent
@@ -33,41 +36,41 @@ const CreateForm = () => {
       >
         <form action={action}>
           <DialogHeader>
-            <DialogTitle className="text-white">Create New Topic</DialogTitle>
-            <DialogDescription className="text-gray-300">
-              Fill in the details for your new discussion topic.
+            <DialogTitle className="text-white">Create a Post</DialogTitle>
+            <DialogDescription className="text-gray-300 font-medium">
+              Write a new post for the topic, click save when you are done.
             </DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="name" className="text-white">
-                Name
+              <Label htmlFor="Title" className="text-white">
+                Title
               </Label>
               <Input
-                id="name"
-                name="name"
-                placeholder="Enter topic name"
+                id="Title"
+                name="Title"
+                placeholder="Create a new post"
                 className="bg-gray-800 text-white"
               />
             </div>
-            {formState.errors.name && (
-              <p className="text-red-600 font-medium text-sm ">{formState.errors.name}</p>
+            {formState.errors.title && (
+              <p className="text-red-600 font-medium text-sm ">{formState.errors.title}</p>
             )}
             <div className="grid gap-2">
-              <Label htmlFor="description" className="text-white">
-                Description
+              <Label htmlFor="content" className="text-white">
+                Content
               </Label>
               <Textarea
-                id="description"
-                name="description"
-                placeholder="What's thinking today?"
+                id="content"
+                name="content"
+                placeholder="Write your post content here....."
                 className="bg-slate-800 text-white h-20"
               />
             </div>
-            {formState.errors.description && (
+            {formState.errors.content && (
               <p className="text-red-600 font-medium text-sm">
-                {formState.errors.description}
+                {formState.errors.content}
               </p>
             )}
             {formState.errors.formError && (

@@ -25,7 +25,7 @@ export const createTopic = async (prevState:CreateTopicFormState,formData: FormD
         name:formData.get("name"),
         description:formData.get("description")
     });
-    if(!result.success){
+    if(!result.success){    
         return {
             errors:result.error.flatten().fieldErrors
         }
