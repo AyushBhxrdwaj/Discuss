@@ -24,7 +24,7 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="z-10 bg-black/45">Create a Post</Button>
+        <Button className="z-10 bg-black/45 ml-5">Create a Post</Button>
       </DialogTrigger>
 
       <DialogContent

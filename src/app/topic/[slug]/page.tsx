@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
-import PostFormCreate from "@/components/posts/PostFormCreate"
+import PostFormCreate from "@/components/posts/PostFormCreate";
+import PostList from "@/components/posts/post-lists";
+import { fetchPostBySlug } from "@/lib/query/post";
 type TopicshowPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -8,11 +10,13 @@ type TopicshowPageProps = {
 const showPage: React.FC<TopicshowPageProps> = async ({ params }) => {
   const slug = (await params).slug;
   return (
-    <div className="flex justify-between items-center p-5 mt-3">
-      <div className="col-span-3">
-        <h1 className="text-lg font-md">{slug}</h1>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+      <div className="md:col-span-3 space-y-4">
+        <h1 className="text-lg font-medium">{slug}</h1>
+        <PostList fetchData={()=>fetchPostBySlug(slug)} />
       </div>
-      <div>
+
+      <div className="flex md:items-start items-center justify-center md:justify-end">
         <PostFormCreate slug={slug} />
       </div>
     </div>
