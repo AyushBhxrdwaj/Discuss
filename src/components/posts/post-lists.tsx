@@ -11,7 +11,7 @@ const postList:React.FC<PostListProps> = async ({fetchData}) => {
   return (
     <div className="flex flex-col gap-4 shadow-2xl">
        {posts.map((post) => (
-        <Card key={post.id} className="bg-zinc-900 w-280 border-zinc-700 shadow-xl shadow-white/10">
+        <Card key={post.id} className="bg-zinc-900/15 w-280 border-zinc-700">
           <CardHeader>
             <CardTitle className="text-white">{post.title}</CardTitle>
             <CardDescription className="flex items-center justify-between">
