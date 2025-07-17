@@ -14,13 +14,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
-import {createPost} from "@/actions/create-posts"
+import { createPost } from "@/actions/create-posts";
 import { useActionState } from "react";
+
 type PostFormCreateProps = {
-    slug:string;
-}
-const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
-  const [formState, action] = useActionState(createPost.bind(null,slug),{errors:{}});
+  slug: string;
+};
+
+const PostFormCreate: React.FC<PostFormCreateProps> = ({ slug }) => {
+  const [formState, action] = useActionState(createPost, {
+    errors: {},
+  });
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -43,20 +48,25 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
           </DialogHeader>
 
           <div className="grid gap-4 py-4">
+            <input type="hidden" name="slug" value={slug} />
+
             <div className="grid gap-2">
-              <Label htmlFor="Title" className="text-white">
+              <Label htmlFor="title" className="text-white">
                 Title
               </Label>
               <Input
-                id="Title"
-                name="Title"
+                id="title"
+                name="title"
                 placeholder="Create a new post"
                 className="bg-gray-800 text-white"
               />
             </div>
             {formState.errors.title && (
-              <p className="text-red-600 font-medium text-sm ">{formState.errors.title}</p>
+              <p className="text-red-600 font-medium text-sm">
+                {formState.errors.title}
+              </p>
             )}
+
             <div className="grid gap-2">
               <Label htmlFor="content" className="text-white">
                 Content
@@ -64,7 +74,7 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
               <Textarea
                 id="content"
                 name="content"
-                placeholder="Write your post content here....."
+                placeholder="Write your post content here..."
                 className="bg-slate-800 text-white h-20"
               />
             </div>
@@ -73,8 +83,9 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
                 {formState.errors.content}
               </p>
             )}
+
             {formState.errors.formError && (
-              <div className="border-red-400 bg-red-500  text-white font-medium text-sm p-2 rounded-xl">
+              <div className="border-red-400 bg-red-500 text-white font-medium text-sm p-2 rounded-xl">
                 {formState.errors.formError}
               </div>
             )}
@@ -84,7 +95,6 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-
             <Button type="submit">Save</Button>
           </DialogFooter>
         </form>
@@ -93,4 +103,4 @@ const CreateForm:React.FC<PostFormCreateProps> = ({slug}) => {
   );
 };
 
-export default CreateForm;
+export default PostFormCreate;
