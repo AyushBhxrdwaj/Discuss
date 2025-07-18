@@ -5,8 +5,8 @@ import { fetchTopPosts } from "@/lib/query/post";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden">
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+    <div className="relative min-h-screen w-full overflow-x-hidden mt-2">
+      {/* <div className="absolute inset-0 -z-10 pointer-events-none">
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
           particleCount={500}
@@ -17,7 +17,7 @@ export default function Home() {
           alphaParticles={false}
           disableRotation={false}
         />
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-4 gap-4 p-4">
         <div className="col-span-3">

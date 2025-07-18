@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import Header from "@/components/Header";
+import Particles from "@/blocks/Backgrounds/Particles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full overflow-x-hidden bg-black text-white`}
       >
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <Particles
+            particleColors={["#ffffff", "#ffffff"]}
+            particleCount={1000}
+            particleSpread={8}
+            speed={0.2}
+            particleBaseSize={80}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </div>
+
         <SessionProvider>
           <Header />
           <main className="max-w-7xl mx-auto px-4">{children}</main>

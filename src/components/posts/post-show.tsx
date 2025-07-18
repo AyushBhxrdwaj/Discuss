@@ -1,4 +1,3 @@
-import StarBorder from '@/blocks/Animations/StarBorder'
 import { prisma } from '@/lib'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -16,7 +15,7 @@ const PostShow:React.FC<postShowprops> = async ({postid}) => {
   return (
     <div>
         <h1 className='font-bold my-2 text-2xl'>{post.title}</h1>
-        <p className='border rounded-sm p-4 text-lg font-light mt-3'>{post.content}</p>
+        <p className='border rounded-lg p-4 border-gray-950 text-lg font-bold mt-5  bg-gray-900/25 shadow-lg shadow-gray-700/30 '>{post.content}</p>
     </div>
   )
 }
