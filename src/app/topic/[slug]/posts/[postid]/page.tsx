@@ -4,7 +4,7 @@ import PostShow from "@/components/posts/post-show";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 type PostShowPageProps = {
   params: Promise<{ slug: string; postid: string }>;
 };
@@ -19,11 +19,12 @@ const viewPage: React.FC<PostShowPageProps> = async ({ params }) => {
           Back to {decodeURIComponent(slug)}
         </Button>
       </Link>
-      <PostShow postid={postid} />
+      <Suspense fallback={<p>Loading....</p>}>
+        <PostShow postid={postid} />
+      </Suspense>
       <CommentCreateForm postId={postid} startOpen />
-      <CommentList postId={postid}/>
+      <CommentList postId={postid} />
     </div>
-
   );
 };
 

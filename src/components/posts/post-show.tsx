@@ -6,6 +6,7 @@ type postShowprops={
 }
 
 const PostShow:React.FC<postShowprops> = async ({postid}) => {
+    await new Promise((res)=>setTimeout(res,3000))
     const post=await prisma.post.findFirst({
         where:{
             id:postid

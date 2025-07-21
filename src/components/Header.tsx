@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import { Input } from "@/components/ui/input";
+import React, { Suspense } from "react";
 import FuzzyText from "@/blocks/TextAnimations/FuzzyText";
 import AuthHeader from "./auth-header";
 import Link from "next/link";
+import SearchInput from "./search-input";
 const Header = () => {
   return (
     <div className="grid grid-cols-3 items-center h-16 px-4">
@@ -21,11 +21,9 @@ const Header = () => {
       </div>
 
       <div className="flex justify-center">
-        <Input
-          className="text-gray-400 placeholder:text-gray-400 font-medium border-2 border-gray-600 italic w-full max-w-md"
-          type="text"
-          placeholder="Search Post...."
-        />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
       </div>
       <div className="flex justify-end gap-4">
         <AuthHeader />
