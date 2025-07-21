@@ -42,7 +42,7 @@ export const {
               access_token: account.access_token,
               refresh_token: account.refresh_token,
               expiresAt: account.expires_at ?? null,
-              tokenType: account.tokenType ?? null,
+              tokenType:typeof  account.tokenType==='string' ?account.tokenType: null,
               scope: account.scope,
               id_Token: account.id_token,
               sessionState: account.session_state,
