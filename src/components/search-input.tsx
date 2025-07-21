@@ -9,7 +9,7 @@ const searchInput = () => {
     <form action={search}>
       <Input
       name="term"
-        defaultValue={searchParam.get("term" || "")}
+        defaultValue={searchParam.get("term")??""}
         className="text-gray-400 placeholder:text-gray-400 font-medium border-2 border-gray-300 w-full max-w-md"
         type="text"
         placeholder="Search Post...."
