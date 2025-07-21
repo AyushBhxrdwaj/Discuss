@@ -42,15 +42,19 @@ export const {
               access_token: account.access_token,
               refresh_token: account.refresh_token,
               expiresAt: account.expires_at ?? null,
-              tokenType:typeof  account.tokenType==='string' ?account.tokenType: null,
-              scope: account.scope,
-              id_token:typeof account.id_token==='string'?account.id_token:null,
-              sessionState: typeof account.sessionState==='string'?account.sessionState:null,
+              tokenType:
+                typeof account.token_type === "string"
+                  ? account.token_type
+                  : null,
+              scope: typeof account.scope === "string" ? account.scope : null,
+              id_token:
+                typeof account.id_token === "string" ? account.id_token : null,
+              sessionState:
+                typeof account.session_state === "string"
+                  ? account.session_state
+                  : null,
             },
           });
-          console.log("Signin callback");
-          console.log({ user, account });
-          console.log(existingUser);
         }
       }
 
