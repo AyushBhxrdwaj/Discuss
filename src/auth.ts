@@ -44,8 +44,8 @@ export const {
               expiresAt: account.expires_at ?? null,
               tokenType:typeof  account.tokenType==='string' ?account.tokenType: null,
               scope: account.scope,
-              id_Token: account.id_token,
-              sessionState: account.session_state,
+              id_token:typeof account.id_token==='string'?account.id_token:null,
+              sessionState: typeof account.sessionState==='string'?account.sessionState:null,
             },
           });
           console.log("Signin callback");
