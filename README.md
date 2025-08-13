@@ -5,9 +5,6 @@
 [![Prisma](https://img.shields.io/badge/Prisma-3982CE?logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![NextAuth.js](https://img.shields.io/badge/NextAuth.js-000000?logo=nextauth&logoColor=white)](https://next-auth.js.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-
-**Discuss** is a modern, full-stack community platform built with Next.js, Prisma, NextAuth.js, and Tailwind CSS. It provides a clean, responsive interface for creating posts, engaging in threaded conversations, and building scalable online communities.
-
 *(Add a screenshot of your application here)*
 `![Discuss Platform Screenshot](link-to-your-screenshot.png)`
 
@@ -61,6 +58,16 @@ To get a local copy up and running, follow these steps.
     # OR
     yarn install
     ```
+
+### Production (Vercel) database & Prisma schema
+
+Set these in Vercel Project → Settings → Environment Variables:
+
+- `DATABASE_URL` = Postgres connection string
+- `PRISMA_SCHEMA_PATH` = prisma/schema.postgres.prisma
+
+Build runs `prisma migrate deploy && next build`, so your production DB schema is applied automatically.
+
 
 3.  **Set up your Environment Variables**
     Create a `.env` file in the root of your project by copying the example:

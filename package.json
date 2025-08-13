@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+  "build": "prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint"
+  "lint": "next lint",
+  "prisma:generate": "prisma generate",
+  "prisma:deploy": "prisma migrate deploy",
+  "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "^0.40.0",
