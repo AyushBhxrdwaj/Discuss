@@ -1,0 +1,8 @@
+// Production Prisma schema for deployment
+// This file shows how to configure for PostgreSQL in production
+// Replace the datasource block in schema.prisma when deploying
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}

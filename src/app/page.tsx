@@ -1,4 +1,3 @@
-import Particles from "@/blocks/Backgrounds/Particles";
 import PostList from "@/components/posts/post-lists";
 import CreateForm from "@/components/Topics/CreateForm";
 import { fetchTopPosts } from "@/lib/query/post";

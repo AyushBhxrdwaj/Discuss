@@ -3,7 +3,7 @@ import React from "react";
 import { Input } from "./ui/input";
 import { useSearchParams } from "next/navigation";
 import { search } from "@/actions/search";
-const searchInput = () => {
+const SearchInput = () => {
   const searchParam = useSearchParams();
   return (
     <form action={search}>
@@ -18,4 +18,4 @@ const searchInput = () => {
   );
 };
 
-export default searchInput;
+export default SearchInput;
