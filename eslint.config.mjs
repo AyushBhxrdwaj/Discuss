@@ -16,9 +16,9 @@ const eslintConfig = [
       "src/generated/**/*",
       ".next/**/*",
       "out/**/*",
-      "node_modules/**/*"
-    ]
-  }
+      "node_modules/**/*",
+    ],
+  },
 ];
 
 export default eslintConfig;

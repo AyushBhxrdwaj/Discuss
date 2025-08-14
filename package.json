@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-  "build": "node ./scripts/prisma-sync.js && next build",
+    "build": "node ./scripts/prisma-sync.js && next build",
     "start": "next start",
-  "lint": "next lint",
-  "prisma:generate": "prisma generate",
-  "prisma:deploy": "prisma migrate deploy",
-  "postinstall": "prisma generate"
+    "lint": "next lint",
+    "prisma:generate": "prisma generate",
+    "prisma:deploy": "prisma migrate deploy",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "^0.40.0",

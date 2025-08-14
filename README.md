@@ -5,32 +5,32 @@
 [![Prisma](https://img.shields.io/badge/Prisma-3982CE?logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![NextAuth.js](https://img.shields.io/badge/NextAuth.js-000000?logo=nextauth&logoColor=white)](https://next-auth.js.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-*(Add a screenshot of your application here)*
+_(Add a screenshot of your application here)_
 `![Discuss Platform Screenshot](link-to-your-screenshot.png)`
 
 ---
 
 ## ✨ Features
 
--   📝 **Create & Join Discussions**: Users can start new discussion topics.
--   💬 **Threaded Comments**: Nested replies allow for organized and engaging conversations.
--   🔐 **Secure Authentication**: Robust login system using **NextAuth.js** with a GitHub OAuth provider.
--   🗄️ **PostgreSQL Database**: Scalable and robust data persistence managed with the Prisma ORM.
--   🌙 **Dark Mode**: A fully responsive and user-friendly light/dark theme switcher.
--   🎨 **Modern UI**: Clean and responsive interface built with Tailwind CSS.
--   🛠️ **Full-Stack Architecture**: Leverages Next.js for both frontend rendering and backend API routes.
+- 📝 **Create & Join Discussions**: Users can start new discussion topics.
+- 💬 **Threaded Comments**: Nested replies allow for organized and engaging conversations.
+- 🔐 **Secure Authentication**: Robust login system using **NextAuth.js** with a GitHub OAuth provider.
+- 🗄️ **PostgreSQL Database**: Scalable and robust data persistence managed with the Prisma ORM.
+- 🌙 **Dark Mode**: A fully responsive and user-friendly light/dark theme switcher.
+- 🎨 **Modern UI**: Clean and responsive interface built with Tailwind CSS.
+- 🛠️ **Full-Stack Architecture**: Leverages Next.js for both frontend rendering and backend API routes.
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer      | Technology                               |
-| :--------- | :--------------------------------------- |
-| **Framework** | Next.js / React                          |
-| **Styling** | Tailwind CSS                             |
-| **Database** | PostgreSQL with Prisma ORM               |
-| **Authentication** | NextAuth.js + GitHub OAuth               |
-| **Deployment** | Vercel / Railway / Render                |
+| Layer              | Technology                 |
+| :----------------- | :------------------------- |
+| **Framework**      | Next.js / React            |
+| **Styling**        | Tailwind CSS               |
+| **Database**       | PostgreSQL with Prisma ORM |
+| **Authentication** | NextAuth.js + GitHub OAuth |
+| **Deployment**     | Vercel / Railway / Render  |
 
 ---
 
@@ -40,13 +40,14 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/en/) (v18 or later)
--   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
--   A running [PostgreSQL](https://www.postgresql.org/) database instance.
+- [Node.js](https://nodejs.org/en/) (v18 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- A running [PostgreSQL](https://www.postgresql.org/) database instance.
 
 ### Installation & Setup
 
 1.  **Clone the repository**
+
     ```bash
     git clone [https://github.com/your-username/discuss.git](https://github.com/your-username/discuss.git)
     cd discuss
@@ -68,13 +69,15 @@ Set these in Vercel Project → Settings → Environment Variables:
 
 Build runs `prisma migrate deploy && next build`, so your production DB schema is applied automatically.
 
-
 3.  **Set up your Environment Variables**
     Create a `.env` file in the root of your project by copying the example:
+
     ```bash
     cp .env.example .env
     ```
+
     Update the `.env` file with your credentials:
+
     ```env
     # Database connection string for Prisma
     DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
@@ -92,6 +95,7 @@ Build runs `prisma migrate deploy && next build`, so your production DB schema i
 
 4.  **Run Database Migrations**
     This command will sync your database schema with your Prisma schema file.
+
     ```bash
     npx prisma migrate dev
     ```

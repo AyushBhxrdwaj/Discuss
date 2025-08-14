@@ -1,8 +1,7 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useSession, signIn as nextAuthSignIn } from "next-auth/react";
 import React from "react";
 import { Button } from "./ui/button";
-import { signIn } from "@/actions/sign-in";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { LogOut } from "lucide-react";
@@ -41,14 +40,22 @@ const AuthHeader = () => {
   } else {
     authContent = (
       <>
-        <form action={signIn} className="mr-10">
-          <Button className="text-gray-400 mr-3" variant="ghost">
+        <div className="mr-10 flex items-center gap-2">
+          <Button
+            className="text-gray-400 mr-3"
+            variant="ghost"
+            onClick={() => nextAuthSignIn("github", { callbackUrl: "/" })}
+          >
             SignIn
           </Button>
-          <Button className="text-gray-400" variant="default">
+          <Button
+            className="text-gray-400"
+            variant="default"
+            onClick={() => nextAuthSignIn("github", { callbackUrl: "/" })}
+          >
             SignUp
           </Button>
-        </form>
+        </div>
       </>
     );
   }

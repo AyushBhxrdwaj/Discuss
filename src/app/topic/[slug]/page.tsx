@@ -12,7 +12,7 @@ const showPage: React.FC<TopicshowPageProps> = async ({ params }) => {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
       <div className="md:col-span-3 space-y-4">
         <h1 className="text-2xl font-bold">{decodeURIComponent(slug)}</h1>
-        <PostList fetchData={()=>fetchPostBySlug(slug)} />
+        <PostList fetchData={() => fetchPostBySlug(slug)} />
       </div>
 
       <div className="flex md:items-start items-center justify-center md:justify-end">
