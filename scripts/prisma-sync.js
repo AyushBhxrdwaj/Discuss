@@ -18,11 +18,19 @@ if (schemaEnv) {
     : path.resolve(process.cwd(), schemaEnv);
   console.log(`[prisma-sync] Using schema: ${schemaEnv} -> ${abs}`);
   if (!fs.existsSync(abs)) {
-    console.warn(`[prisma-sync] Schema not found at ${abs}. Falling back to migrate deploy.`);
+    console.warn(
+      `[prisma-sync] Schema not found at ${abs}. Falling back to migrate deploy.`
+    );
     run("npx", ["prisma", "migrate", "deploy"]);
   } else {
     // For first-time deploys on Postgres, push schema without migrations.
-    run("npx", ["prisma", "db", "push", "--accept-data-loss", `--schema=${abs}`]);
+    run("npx", [
+      "prisma",
+      "db",
+      "push",
+      "--accept-data-loss",
+      `--schema=${abs}`,
+    ]);
   }
 } else {
   console.log("[prisma-sync] Using migrate deploy with default schema");
